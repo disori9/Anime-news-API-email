@@ -11,8 +11,7 @@ request = requests.get(url)
 # Convert request to a json file, creating a dict variable
 content = request.json()
 
-# Iterate over the articles in the variable content (dict), as it is a list, then email them to user as Subject: title
-# And description as message.
+# Iterate over the articles in the variable content (dict), as it is a list, then email them to user as Title \n Message
 email_message = "Subject: Anime News \n"
 for article in content['articles']:
     if article['title'] is None:
