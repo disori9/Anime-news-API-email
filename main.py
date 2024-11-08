@@ -11,11 +11,11 @@ request = requests.get(url)
 # Convert request to a json file, creating a dict variable
 content = request.json()
 
-# Iterate over the articles in the variable content (dict), as it is a list, then email them to user as Title \n Message
+# Iterate over the articles in the variable content (dict), then message all top articles to user in one email
 email_message = "Subject: Anime News \n"
 for article in content['articles']:
     if article['title'] is None:
         continue
-    email_message = email_message + article['title'] + "\n" + article['description'] + 2*"\n"
+    email_message = email_message + article['title'] + "\n" + article['description'] + "\n" + article['url'] + 2*"\n"
 
 se.send_email(email_message)
