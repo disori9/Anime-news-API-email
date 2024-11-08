@@ -12,7 +12,7 @@ def send_email(user_message):
 
     context = ssl.create_default_context()
 
-    message_local = user_message
+    message_local = user_message.encode('utf-8')
 
     with smtplib.SMTP_SSL(host, port, context=context) as server:
         server.login(username, password)
