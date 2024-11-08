@@ -13,7 +13,7 @@ content = request.json()
 
 # Iterate over the articles in the variable content (dict), then message all top articles to user in one email
 email_message = "Subject: Anime News \n"
-for article in content['articles']:
+for article in content['articles'][:20]:
     if article['title'] is None:
         continue
     email_message = email_message + article['title'] + "\n" + article['description'] + "\n" + article['url'] + 2*"\n"
